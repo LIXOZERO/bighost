@@ -1,4 +1,5 @@
 
+import { BsPerson } from "react-icons/bs";
 import Input from "./input";
 
 export default function InputIcon ( props )
@@ -9,9 +10,9 @@ export default function InputIcon ( props )
             <div className="relative mb-6">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
 
-                    { props.icon ? props.icon : <BsPersonAdd /> }
+                    { props.icon ? props.icon : <BsPerson /> }
                 </div>
-                <Input { ...props } id="input-group-1" className={ ` pl-10 p-2.5 ${ props.className }` } />
+                <input { ...props } id="input-group-1" className={ `bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10 p-2.5 ${ props.className }` } />
             </div>
         </div>
     )
