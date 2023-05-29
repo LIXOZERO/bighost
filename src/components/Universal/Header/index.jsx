@@ -8,50 +8,55 @@ import { AiOutlineClose } from 'react-icons/ai'
 
 import styles from './style.module.css'
 
-const Header = () => {
-  const [scrollValue, setScrollValue] = useState(0)
-  const [screenWidth, setScreenWidth] = useState(1600)
-  const [mobileHamburger, setMobileHambuler] = useState(false)
+const Header = () =>
+{
+  const [ scrollValue, setScrollValue ] = useState( 0 )
+  const [ screenWidth, setScreenWidth ] = useState( 1600 )
+  const [ mobileHamburger, setMobileHambuler ] = useState( false )
 
-  useEffect(() => {
-    function handleSize() {
+  useEffect( () =>
+  {
+    function handleSize ()
+    {
       let screenWidth = window.screen.width
-      setScreenWidth(screenWidth)
+      setScreenWidth( screenWidth )
     }
-    function handleScroll() {
+    function handleScroll ()
+    {
       let listenScroll = window.scrollY
 
-      setScrollValue(listenScroll)
+      setScrollValue( listenScroll )
     }
-    addEventListener('scroll', handleScroll)
-    addEventListener('resize', handleSize)
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-      window.removeEventListener('resize', handleSize)
+    addEventListener( 'scroll', handleScroll )
+    addEventListener( 'resize', handleSize )
+    return () =>
+    {
+      window.removeEventListener( 'scroll', handleScroll )
+      window.removeEventListener( 'resize', handleSize )
     }
-  }, [])
+  }, [] )
 
   return (
-    <header className={styles.header}>
-      <div className={styles.login_header}>
-        <div className={styles.login_header_left_container}>
+    <header className={ styles.header }>
+      <div className={ styles.login_header }>
+        <div className={ styles.login_header_left_container }>
           <span>
-            {' '}
-            <BsFillTelephoneFill size={15} color="#575757" />
-            24x7 Technical Support +25884XXXXX{' '}
+            { ' ' }
+            <BsFillTelephoneFill size={ 15 } color="#575757" />
+            24x7 Technical Support +25884XXXXX{ ' ' }
           </span>
           <span>
-            <IoChatbubblesSharp size={15} color="#575757" />
-            Live Chat{' '}
+            <IoChatbubblesSharp size={ 15 } color="#575757" />
+            Live Chat{ ' ' }
           </span>
         </div>
-        <div className={styles.login_header_right_container}>
-          <Link className={styles.login_header_links} href={'#'}>
-            <BsFillPersonFill size={15} color="#575757" />
+        <div className={ styles.login_header_right_container }>
+          <Link className={ styles.login_header_links } href={ '/signin' }>
+            <BsFillPersonFill size={ 15 } color="#575757" />
             Login
           </Link>
-          <Link className={styles.login_header_links} href={'#'}>
-            <HiLockClosed size={15} color="#575757" />
+          <Link className={ styles.login_header_links } href={ '/signup' }>
+            <HiLockClosed size={ 15 } color="#575757" />
             Register
           </Link>
         </div>
@@ -61,56 +66,56 @@ const Header = () => {
           screenWidth <= 768
             ? styles.nav_fixed
             : scrollValue >= 100
-            ? styles.nav_fixed
-            : styles.nav
+              ? styles.nav_fixed
+              : styles.nav
         }
       >
-        <div className={styles.logo_container}>
+        <div className={ styles.logo_container }>
           <h1>Logo</h1>
         </div>
-        <div className={styles.list_container}>
-          <ul className={styles.list}>
-            <Link href={'#'}>Home</Link>
-            <Link href={'#'}>Page</Link>
-            <Link href={'#'}>Hosting</Link>
-            <Link href={'#'}>Elements</Link>
+        <div className={ styles.list_container }>
+          <ul className={ styles.list }>
+            <Link href={ '#' }>Home</Link>
+            <Link href={ '#' }>Page</Link>
+            <Link href={ '#' }>Hosting</Link>
+            <Link href={ '#' }>Elements</Link>
           </ul>
-          <button className={styles.list_container_button}>
+          <Link href='/signin' className={ styles.list_container_button }>
             Get started
-          </button>
+          </Link>
         </div>
 
-        {mobileHamburger && (
-          <div className={styles.list_container_mobile}>
-            <ul className={styles.list}>
-              <Link href={'#'}>Home</Link>
-              <Link href={'#'}>Page</Link>
-              <Link href={'#'}>Hosting</Link>
-              <Link href={'#'}>Elements</Link>
+        { mobileHamburger && (
+          <div className={ styles.list_container_mobile }>
+            <ul className={ styles.list }>
+              <Link href={ '#' }>Home</Link>
+              <Link href={ '#' }>Page</Link>
+              <Link href={ '#' }>Hosting</Link>
+              <Link href={ '#' }>Elements</Link>
             </ul>
-            <button className={styles.list_container_button}>
+            <Link href='/signin' className={ styles.list_container_button }>
               Get started
-            </button>
+            </Link>
           </div>
-        )}
+        ) }
 
-        <div className={styles.mobile_hamburger_button}>
-          {!mobileHamburger ? (
+        <div className={ styles.mobile_hamburger_button }>
+          { !mobileHamburger ? (
             <VscListFilter
-              onClick={() => setMobileHambuler(!mobileHamburger)}
-              size={25}
+              onClick={ () => setMobileHambuler( !mobileHamburger ) }
+              size={ 25 }
               color="#000"
             />
           ) : (
             <AiOutlineClose
-              onClick={() => setMobileHambuler(!mobileHamburger)}
-              size={25}
+              onClick={ () => setMobileHambuler( !mobileHamburger ) }
+              size={ 25 }
               color="#000"
             />
-          )}
+          ) }
         </div>
       </nav>
-    </header>
+    </header >
   )
 }
 

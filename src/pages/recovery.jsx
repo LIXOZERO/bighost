@@ -31,6 +31,7 @@ export default function Login ()
                 <Card className='max-w-sm w-full ' label=''>
                     <Link href={ '/signin' }>          <IoArrowBack className='h-7 w-7' /></Link>
                     <h5 class="text-3xl font-medium text-gray-900">Login</h5>
+                    <br />
                     <span className=' text-gray-600'>Digite seu e-mail para obter um link de redefinição de senha.</span>
                     <br />     <br />
                     <form onSubmit={ handleSubmit }>
